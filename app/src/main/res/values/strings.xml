@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ilanguage</string>
+    <string name="ilanguage">ILanguage</string>
+    <string name="make_a_conversation_improve_your_language">Make a conversation, improve your language</string>
 </resources>
