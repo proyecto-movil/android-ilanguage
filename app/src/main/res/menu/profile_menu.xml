@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/itemProfile"
+        android:onClick="GoToProfile"
         android:title="@string/profile" />
     <item
         android:id="@+id/itemLogOut"
