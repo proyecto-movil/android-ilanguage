@@ -10,8 +10,4 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    fun changeActivity(view: View){
-       val intent = Intent(this,MainMenuActivity::class.java)
-       startActivity(intent)
-    }
 }

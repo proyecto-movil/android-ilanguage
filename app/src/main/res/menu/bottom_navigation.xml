@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/bnHome"
-        android:icon="@android:drawable/ic_menu_mapmode"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home" />
     <item
         android:id="@+id/bnSearch"
@@ -12,7 +12,7 @@
         android:title="@string/search" />
     <item
         android:id="@+id/btNotification"
-        android:icon="@android:drawable/stat_notify_error"
+        android:icon="@drawable/ic_baseline_notifications_24"
         android:title="@string/notifications" />
     <item
         android:id="@+id/bnMessages"
