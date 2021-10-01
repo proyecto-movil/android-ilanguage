@@ -15,5 +15,10 @@
     <string name="a_teacher">A teacher</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
-
+    <string name="profile_name">Profile name</string>
+    <string name="description">Description</string>
+    <string name="interest">Interest</string>
+    <string name="edit">Edit</string>
+    <string name="texto_de_ejemplo_de_desciption">Texto de ejemplo de desciption</string>
+    <string name="texto_de_ejemplo_de_interest">Texto de ejemplo de interest</string>
 </resources>
