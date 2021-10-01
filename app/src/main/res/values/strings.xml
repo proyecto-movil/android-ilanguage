@@ -6,4 +6,14 @@
     <string name="search">Search</string>
     <string name="notifications">Notifications</string>
     <string name="messages">Messages</string>
+    <string name="ilanguage">ILanguage</string>
+    <string name="make_a_conversation_improve_your_language">Make a conversation, improve your language</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="choose_your_role_to_get_started">Choose your role to get started</string>
+    <string name="student">Student</string>
+    <string name="a_teacher">A teacher</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
 </resources>

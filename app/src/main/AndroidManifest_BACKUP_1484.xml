@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ilanguage">
         <activity
+<<<<<<< HEAD
             android:name=".MainMenuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+=======
+            android:name=".login_info"
             android:exported="true" />
         <activity
             android:name=".activity_details_personal"
@@ -26,6 +32,7 @@
             android:exported="true" />
         <activity
             android:name=".login"
+>>>>>>> feature/login-signup
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

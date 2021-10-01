@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ilanguage">
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".login_info"
             android:exported="true" />
         <activity
             android:name=".activity_details_personal"
@@ -33,7 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
