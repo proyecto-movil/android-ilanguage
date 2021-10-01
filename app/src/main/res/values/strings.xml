@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">ilanguage</string>
+
+    <string name="profile">Profile</string>
+    <string name="log_out">Log out</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="notifications">Notifications</string>
+    <string name="messages">Messages</string>
+    <string name="ilanguage">ILanguage</string>
+    <string name="make_a_conversation_improve_your_language">Make a conversation, improve your language</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="choose_your_role_to_get_started">Choose your role to get started</string>
+    <string name="student">Student</string>
+    <string name="a_teacher">A teacher</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="profile_name">Profile name</string>
+    <string name="description">Description</string>
+    <string name="interest">Interest</string>
+    <string name="edit">Edit</string>
+    <string name="texto_de_ejemplo_de_desciption">Texto de ejemplo de desciption</string>
+    <string name="texto_de_ejemplo_de_interest">Texto de ejemplo de interest</string>
+
+    <string name="hint_my_profile">My Profile</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_save">Save</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="mary_doe">Mary Doe</string>
+    <string name="english_sport_soccer">English-Sport Soccer</string>
+    <string name="hi_jhon">Hi Jhon!</string>
+    <string name="description_session">In this class we hace a conversation about sport, on specifitty soccer.</string>
+    <string name="hour">1h</string>
+    <string name="cancel">CANCEL</string>
+    <string name="join">JOIN</string>
+    <string name="todo">TODO</string>
+
 </resources>
