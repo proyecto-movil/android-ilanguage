@@ -22,13 +22,12 @@
             android:exported="true">
         </activity>
         <activity
-
             android:name=".editprofile"
-        android:exported="true" >
+            android:parentActivityName=".ProfileViewActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVYTY"
+                android:value=".ProfileViewActivity"/>
         </activity>
-
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

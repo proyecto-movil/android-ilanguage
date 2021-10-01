@@ -22,11 +22,11 @@ class select_signup : AppCompatActivity() {
         }
 
         btnStudent.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,details_signup::class.java)
             startActivity(intent)
         }
         btnTeacher.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,details_signup::class.java)
             startActivity(intent)
         }
 

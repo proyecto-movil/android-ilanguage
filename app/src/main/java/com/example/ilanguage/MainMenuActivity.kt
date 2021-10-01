@@ -22,11 +22,17 @@ class MainMenuActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.itemProfile)
             GoToProfile()
+        if(item.itemId == R.id.itemLogOut)
+            GoToLogin()
         return super.onOptionsItemSelected(item)
     }
 
     fun GoToProfile(){
         val intent = Intent(this, ProfileViewActivity::class.java)
+        startActivity(intent)
+    }
+    fun GoToLogin(){
+        val intent = Intent(this, login::class.java)
         startActivity(intent)
     }
 }

@@ -20,7 +20,7 @@ class details_signup : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
-            val intent = Intent(this,login::class.java)
+            val intent = Intent(this,select_signup::class.java)
             startActivity(intent)
         }
     }

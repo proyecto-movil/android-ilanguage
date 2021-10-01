@@ -28,7 +28,7 @@ class activity_details_personal : AppCompatActivity() {
         languageAutoComplete.setAdapter(adapter)
 
         btnContinueUser.setOnClickListener {
-            val intent = Intent(this,select_signup::class.java)
+            val intent = Intent(this,MainMenuActivity::class.java)
             startActivity(intent)
         }
 
