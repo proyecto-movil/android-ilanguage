@@ -32,14 +32,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Mary Doe"
+                android:text="@string/mary_doe"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="409dp"
+                android:layout_height="282dp"
                 android:layout_marginTop="84dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.49"
@@ -47,7 +47,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/futball_photo"
                 tools:src="@drawable/futball_photo"
-                tools:srcCompat="@drawable/futball_photo" />
+                tools:srcCompat="@drawable/futball_photo"
+                android:contentDescription="@string/todo" />
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -57,7 +58,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+                app:srcCompat="@drawable/ic_baseline_account_circle_24"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -65,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
-                android:text="English-Sport Soccer"
+                android:text="@string/english_sport_soccer"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -74,22 +76,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="20dp"
-                android:text="JOIN"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/join"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:ignore="TextContrastCheck" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="90dp"
-                android:layout_marginBottom="20dp"
-                android:text="CANCEL"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button2"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -97,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="17dp"
-                android:text="Hi Jhon!"
+                android:text="@string/hi_jhon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -108,7 +114,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:text="In this class we hace a conversation about sport, on specifitty soccer."
+                android:text="@string/description_session"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -119,7 +125,7 @@
                 android:layout_height="18dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
-                android:text="1h"
+                android:text="@string/hour"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
