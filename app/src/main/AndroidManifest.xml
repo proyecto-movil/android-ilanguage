@@ -20,6 +20,12 @@
             android:name=".MainMenuActivity"
             android:exported="true">
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".activity_details_personal"
             android:exported="true" />
@@ -31,6 +37,9 @@
             android:exported="true" />
         <activity
             android:name=".login_inputs"
+            android:exported="true" />
+        <activity
+            android:name=".login_info"
             android:exported="true" />
         <activity
             android:name=".login"

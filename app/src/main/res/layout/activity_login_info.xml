@@ -18,11 +18,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_login"
+        app:layout_constraintTop_toBottomOf="@+id/view_login_login_info"
         app:layout_constraintVertical_bias="0.168" />
 
     <View
-        android:id="@+id/view_login"
+        android:id="@+id/view_login_login_info"
         android:layout_width="350dp"
         android:layout_height="450dp"
         android:background="#C12D9CDB"
@@ -41,22 +41,22 @@
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view_login"
-        app:layout_constraintEnd_toEndOf="@+id/view_login"
+        app:layout_constraintBottom_toBottomOf="@+id/view_login_login_info"
+        app:layout_constraintEnd_toEndOf="@+id/view_login_login_info"
         app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/view_login"
+        app:layout_constraintStart_toStartOf="@+id/view_login_login_info"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.281" />
 
     <ImageView
-        android:id="@+id/back_image"
+        android:id="@+id/back_image_login_info"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginBottom="36dp"
         android:background="#2D9CDB"
         android:clickable="true"
         android:contentDescription="Return to "
-        app:layout_constraintBottom_toTopOf="@+id/view_login"
+        app:layout_constraintBottom_toTopOf="@+id/view_login_login_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
         app:tintMode="add" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/filledTextField2"
+        android:id="@+id/email_login"
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
@@ -78,6 +78,7 @@
         app:layout_constraintVertical_bias="0.38">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#20656464"
@@ -86,7 +87,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/LanguageField"
+        android:id="@+id/password_login"
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
@@ -103,6 +104,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#20656464"
@@ -111,15 +113,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/text_forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot password?"
-        app:layout_constraintBottom_toBottomOf="@+id/view_login"
+        app:layout_constraintBottom_toBottomOf="@+id/view_login_login_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LanguageField"
+        app:layout_constraintTop_toBottomOf="@+id/password_login"
         app:layout_constraintVertical_bias="0.078" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

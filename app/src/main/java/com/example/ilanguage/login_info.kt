@@ -10,7 +10,8 @@ class login_info : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_info)
-        val btnBack = findViewById<ImageView>(R.id.back_image)
+
+        val btnBack = findViewById<ImageView>(R.id.back_image_login_info)
         val btnContinue = findViewById<Button>(R.id.btn_signin3)
 
 
