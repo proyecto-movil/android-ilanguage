@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@drawable/signup_wallpaper"
 
-    tools:context=".details_signup">
+    android:layout_height="match_parent"
+    tools:context=".activity_details_personal">
 
 
     <Button
-        android:id="@+id/btn_continue_signup"
+        android:id="@+id/btn_continue_signup_users"
         android:layout_width="359dp"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.377" />
 
     <ImageView
-            android:id="@+id/back_image3"
+        android:id="@+id/back_image3"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -57,9 +57,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_description"
-        android:layout_width="314dp"
-        android:layout_height="55dp"
-        android:hint="Full name"
+        android:layout_width="312dp"
+        android:layout_height="105dp"
+        android:hint="Description"
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,9 +69,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="92dp"
             android:background="#20656464"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:singleLine="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,19 +81,20 @@
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
-        android:hint="Email"
+        android:hint="Birthdate"
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38">
+        app:layout_constraintVertical_bias="0.39">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#20656464"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:text="mm/dd/yy" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,7 +103,7 @@
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
-        android:hint="DNI"
+        android:hint="Country"
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,49 +123,26 @@
         android:id="@+id/LanguageField"
         android:layout_width="314dp"
         android:layout_height="55dp"
-        android:backgroundTint="#20100F0F"
-        android:hint="@string/password"
-        android:inputType="textPassword"
+        android:backgroundTint="#20656464"
+
+        android:hint="language to study/teach"
+        android:inputType="none"
+
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
 
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:endIconMode="password_toggle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.62">
 
-
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:id="@+id/languageAutoComplete"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#20656464"
-            android:minHeight="48dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/filledTextField5"
-        android:layout_width="314dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#20100F0F"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:endIconMode="password_toggle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#20656464"
-            android:minHeight="48dp" />
+            android:layout_height="match_parent"
+            android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,5 +158,6 @@
         app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763" />
+        app:layout_constraintVertical_bias="0.893" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
