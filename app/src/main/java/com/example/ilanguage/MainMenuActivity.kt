@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
-import android.view.View
+import android.view.MenuItem
 
 class MainMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,14 @@ class MainMenuActivity : AppCompatActivity() {
         inflater.inflate(R.menu.profile_menu,menu)
         return true
     }
-    fun GoToProfile(view: View){
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.itemProfile)
+            GoToProfile()
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun GoToProfile(){
         val intent = Intent(this, ProfileViewActivity::class.java)
         startActivity(intent)
     }
