@@ -30,5 +30,6 @@
     <string name="hint_description">Description</string>
     <string name="hint_save">Save</string>
     <string name="hint_cancel">Cancel</string>
+    <string name="todo">TODO</string>
 
 </resources>
