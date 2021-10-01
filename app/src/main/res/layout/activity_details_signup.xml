@@ -91,7 +91,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#20656464"
+            android:background="#1B656464"
             android:minHeight="48dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
