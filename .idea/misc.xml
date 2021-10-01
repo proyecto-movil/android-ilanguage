@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3104166666666667" />
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3104166666666667" />
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/layout-land/activity_login.xml" value="0.33" />
@@ -18,6 +19,9 @@
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
 
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout-land/activity_profile_view.xml" value="0.3021015761821366" />
+=======
+        <entry key="..\:/Descargas/Landing/android-ilanguage/app/src/main/res/layout/activity_editprofile.xml" value="0.25" />
+>>>>>>> feature/Edit_PerfilView
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout/activity_main.xml" value="0.28351449275362317" />
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout/activity_profile_view.xml" value="0.7289719626168224" />
