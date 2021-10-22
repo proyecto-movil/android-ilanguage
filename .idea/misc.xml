@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
+    
+    
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
+
+        <entry key="..\:/Users/Usuario/Desktop/Omar/CURSOS/2021-II/Aplicaciones_Mobile/TP/app/src/main/res/layout/activity_main.xml" value="0.4082369942196532" />
+        <entry key="..\:/Users/Usuario/Desktop/Omar/CURSOS/2021-II/Aplicaciones_Mobile/TP/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Usuario/Desktop/Omar/CURSOS/2021-II/Aplicaciones_Mobile/TP/app/src/main/res/menu/menu.xml" value="0.2942708333333333" />
+     
+ 
+
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3104166666666667" />
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3104166666666667" />
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/layout-land/activity_login.xml" value="0.33" />
@@ -19,9 +27,13 @@
         <entry key="..\:/UPC2021-2/Aplicaciones Moviles/android-ilanguage/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
 
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout-land/activity_profile_view.xml" value="0.3021015761821366" />
-=======
+
         <entry key="..\:/Descargas/Landing/android-ilanguage/app/src/main/res/layout/activity_editprofile.xml" value="0.25" />
->>>>>>> feature/Edit_PerfilView
+
+    
+    
+    
+    
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout/activity_main.xml" value="0.28351449275362317" />
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/layout/activity_profile_view.xml" value="0.7289719626168224" />
@@ -29,8 +41,11 @@
         <entry key="..\:/Users/hp_Xa/Documents/universidad/Moviles/repositorios_de_trabajo/android-ilanguage/app/src/main/res/menu/profile_menu.xml" value="0.359375" />
       </map>
     </option>
+
+
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
