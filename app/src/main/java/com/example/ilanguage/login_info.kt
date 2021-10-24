@@ -8,9 +8,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.ilanguage.controllers_login.RetrofitUser
 import com.example.ilanguage.models_login.User
 import com.example.ilanguage.models_login.UserContent
-import com.example.ilanguage.models_login.UserService
+import com.example.ilanguage.services_login.UserService
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson
 import retrofit2.Call
@@ -40,6 +41,14 @@ class login_info : AppCompatActivity() {
         signInButton()
 
     }
+    private fun verifyLogSuccessful(email: String, password: String): User? {
+        for (user in users!!) {
+            if (user.email == email && user.password == password) {
+                return user;
+            }
+        }
+        return null;
+    }
     private fun signInButton() {
 
 
@@ -58,7 +67,35 @@ class login_info : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show();
             } else {
-                if(authenticationUser(email.text.toString(),password.text.toString()) != null) {
+                // METODO WTF
+                RetrofitUser.service.getUsers().enqueue(object : Callback<UserContent> {
+                        override fun onResponse(  call: Call<UserContent>,response: Response<UserContent>)
+                        {
+                            val apiResponse = response?.body()
+                            if (apiResponse != null) {
+                                users = apiResponse.users
+                                if (verifyLogSuccessful(email.text.toString(),password.text.toString()) != null){
+
+                                    val intent = Intent(applicationContext,MainMenuActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                                    startActivity(intent)
+                                } else {
+
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<UserContent>, t: Throwable) {
+                            Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA", "ON FAILUARE")
+
+                            t?.printStackTrace()
+                        }
+                    })
+
+
+
+                /*if(authenticationUser(email.text.toString(),password.text.toString()) != null) {
                     val intent = Intent(this, MainMenuActivity::class.java)
                     startActivity(intent)
                 }
@@ -68,18 +105,25 @@ class login_info : AppCompatActivity() {
                         "Email / Password incorrectos",
                         Toast.LENGTH_LONG
                     ).show();
-                }
+                }*/
             }
         }
     }
 
-    private fun setListUser(userList : List<User>) {
+    /*private fun setListUser(userList: List<User>) {
+        Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA","ENTRO AL SET LIST USER")
+
         this.users = userList
+        Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA",this.users.toString())
+
     }
 
     private fun authenticationUser(email: String, password: String): User? {
 
+        Log.e("HOLAAAAAAAA","ENTRANDO AL AUTHENTICATIONUSER")
+        //TODO: LOG E IS EXECUTING FIRST THAN GETALLUSERS
         getAllUsers()//(Users)
+        Log.e("ESTADO DEL USUARIO EN AUTHENTICATION",users.toString())
 
         if(users != null){
             for (user in users!!) {
@@ -99,20 +143,14 @@ class login_info : AppCompatActivity() {
     }
 
     private fun getAllUsers() {
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://proyecto-moviles-326304.rj.r.appspot.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAA","ENTRANDO A GET ALL USERS")
 
-        val service: UserService = retrofit.create<UserService>(UserService::class.java)
-
-        val request =  service.getUsers()
-        request.enqueue(object : Callback<UserContent> {
+        RetrofitUser.service.getUsers()
+            .enqueue(object : Callback<UserContent> {
             override fun onResponse(call: Call<UserContent>?, response: Response<UserContent>?) {
-
-
                 val apiResponse = response?.body()
                 if (apiResponse != null) {
+                    Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA", Gson().toJson(apiResponse))
                     setListUser(apiResponse.users)
                 }
             }
@@ -122,5 +160,5 @@ class login_info : AppCompatActivity() {
         })
         /**/
 
-    }
+    }*/
 }

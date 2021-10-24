@@ -1,5 +1,7 @@
-package com.example.ilanguage.models_login
+package com.example.ilanguage.services_login
 
+import com.example.ilanguage.models_login.User
+import com.example.ilanguage.models_login.UserContent
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
