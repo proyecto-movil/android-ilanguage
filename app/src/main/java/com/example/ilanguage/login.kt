@@ -7,7 +7,6 @@ import android.widget.Button
 
 class login : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -24,6 +23,6 @@ class login : AppCompatActivity() {
             val intent = Intent(this,select_signup::class.java)
             startActivity(intent)
         }
-
     }
+
 }

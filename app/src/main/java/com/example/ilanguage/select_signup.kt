@@ -16,6 +16,8 @@ class select_signup : AppCompatActivity() {
         val btnStudent = findViewById<CardView>(R.id.card_student)
         val btnTeacher = findViewById<CardView>(R.id.card_teacher)
 
+        var optionRegister: Int = 0
+
         btnBack.setOnClickListener {
             val intent = Intent(this,login::class.java)
             startActivity(intent)
@@ -23,10 +25,14 @@ class select_signup : AppCompatActivity() {
 
         btnStudent.setOnClickListener {
             val intent = Intent(this,details_signup::class.java)
+            optionRegister = 2
+            intent.putExtra("optionRegister",optionRegister)
             startActivity(intent)
         }
         btnTeacher.setOnClickListener {
             val intent = Intent(this,details_signup::class.java)
+            optionRegister = 1
+            intent.putExtra("optionRegister",optionRegister)
             startActivity(intent)
         }
 

@@ -56,7 +56,7 @@
         app:tintMode="add" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_description"
+        android:id="@+id/descriptionHint"
         android:layout_width="312dp"
         android:layout_height="105dp"
         android:hint="Description"
@@ -68,16 +68,17 @@
         app:layout_constraintVertical_bias="0.26">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/descriptionInput"
             android:layout_width="match_parent"
             android:layout_height="92dp"
             android:background="#20656464"
             android:minHeight="48dp"
-            android:singleLine="false" />
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_login"
+        android:id="@+id/birthdateHint"
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
@@ -90,16 +91,18 @@
         app:layout_constraintVertical_bias="0.39">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/birthdateInput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#20656464"
             android:minHeight="48dp"
+            android:singleLine="true"
             android:text="mm/dd/yy" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/filledTextField3"
+        android:id="@+id/countryInputHint"
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
@@ -112,6 +115,7 @@
         app:layout_constraintVertical_bias="0.51">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/countryInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#20656464"
@@ -120,16 +124,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_login"
+        android:id="@+id/select_language"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="314dp"
         android:layout_height="55dp"
+
         android:backgroundTint="#20656464"
+        android:hint="language to "
 
-        android:hint="language to study/teach"
+
         android:inputType="none"
-
-
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
 
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -147,17 +151,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create an Account"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_description"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionHint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.893" />
+        app:layout_constraintVertical_bias="0.86" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
