@@ -65,7 +65,7 @@
         app:tintMode="add" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_login"
+        android:id="@+id/birthdateHint"
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
@@ -82,12 +82,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#20656464"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_login"
+        android:id="@+id/select_language"
         android:layout_width="314dp"
         android:layout_height="55dp"
         android:backgroundTint="#20100F0F"
@@ -108,7 +109,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#20656464"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_login"
+        app:layout_constraintTop_toBottomOf="@+id/select_language"
         app:layout_constraintVertical_bias="0.078" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

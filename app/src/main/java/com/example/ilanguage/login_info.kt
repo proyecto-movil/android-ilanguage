@@ -1,6 +1,7 @@
 package com.example.ilanguage
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -14,22 +15,26 @@ import com.example.ilanguage.models_login.UserContent
 import com.example.ilanguage.services_login.UserService
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+import java.lang.reflect.Type
 
 
 class login_info : AppCompatActivity() {
 
+    lateinit var sharedPreferences : SharedPreferences
     private var users: List<User>? = null
+    private var userLogged : User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_info)
 
+        sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE)
 
         val btnBack = findViewById<ImageView>(R.id.back_image_login_info)
 
@@ -44,7 +49,8 @@ class login_info : AppCompatActivity() {
     private fun verifyLogSuccessful(email: String, password: String): User? {
         for (user in users!!) {
             if (user.email == email && user.password == password) {
-                return user;
+                userLogged = user;
+                return userLogged;
             }
         }
         return null;
@@ -76,6 +82,7 @@ class login_info : AppCompatActivity() {
                                 users = apiResponse.users
                                 if (verifyLogSuccessful(email.text.toString(),password.text.toString()) != null){
 
+                                    saveDataUserLogged()
                                     val intent = Intent(applicationContext,MainMenuActivity::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
@@ -88,77 +95,24 @@ class login_info : AppCompatActivity() {
 
                         override fun onFailure(call: Call<UserContent>, t: Throwable) {
                             Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA", "ON FAILUARE")
+                            Toast.makeText(
+                                this@login_info,
+                                "Intentelo de nuevo, por favor",
+                                Toast.LENGTH_LONG
+                            ).show();
 
                             t?.printStackTrace()
                         }
                     })
-
-
-
-                /*if(authenticationUser(email.text.toString(),password.text.toString()) != null) {
-                    val intent = Intent(this, MainMenuActivity::class.java)
-                    startActivity(intent)
-                }
-                else{
-                    Toast.makeText(
-                        this,
-                        "Email / Password incorrectos",
-                        Toast.LENGTH_LONG
-                    ).show();
-                }*/
             }
         }
     }
 
-    /*private fun setListUser(userList: List<User>) {
-        Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA","ENTRO AL SET LIST USER")
-
-        this.users = userList
-        Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA",this.users.toString())
-
+    private fun saveDataUserLogged() {
+        var editor: SharedPreferences.Editor = sharedPreferences.edit()
+        var json : String = Gson().toJson(userLogged);
+        editor.putString("userLogged",json)
+        editor.apply();
     }
 
-    private fun authenticationUser(email: String, password: String): User? {
-
-        Log.e("HOLAAAAAAAA","ENTRANDO AL AUTHENTICATIONUSER")
-        //TODO: LOG E IS EXECUTING FIRST THAN GETALLUSERS
-        getAllUsers()//(Users)
-        Log.e("ESTADO DEL USUARIO EN AUTHENTICATION",users.toString())
-
-        if(users != null){
-            for (user in users!!) {
-                if (user.email == email && user.password == password)
-                    return user
-            }
-        }
-        else {
-            Toast.makeText(
-                this,
-                "Ocurrio un error al obtener usuarios",
-                Toast.LENGTH_LONG
-            ).show();
-        }
-
-        return null;
-    }
-
-    private fun getAllUsers() {
-        Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAA","ENTRANDO A GET ALL USERS")
-
-        RetrofitUser.service.getUsers()
-            .enqueue(object : Callback<UserContent> {
-            override fun onResponse(call: Call<UserContent>?, response: Response<UserContent>?) {
-                val apiResponse = response?.body()
-                if (apiResponse != null) {
-                    Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA", Gson().toJson(apiResponse))
-                    setListUser(apiResponse.users)
-                }
-            }
-            override fun onFailure(call: Call<UserContent>, t: Throwable?) {
-                t?.printStackTrace()
-            }
-        })
-        /**/
-
-    }*/
 }
