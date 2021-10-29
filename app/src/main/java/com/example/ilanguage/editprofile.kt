@@ -40,7 +40,9 @@ class editprofile : AppCompatActivity() {
         val btCancel = findViewById<Button>(R.id.btcancel)
 
         initFields(this)
+
         btSave.setOnClickListener {
+
             saveDataUserLogged()
             GoToProfile()
         }
@@ -53,7 +55,7 @@ class editprofile : AppCompatActivity() {
         tvname.text = userLogged?.name
         tvemail.text=userLogged?.email
         tvpassword.text=userLogged?.password
-        tvdescripcion.text=userLogged?.password
+        tvdescripcion.text=userLogged?.description
 
     }
 
@@ -66,6 +68,7 @@ class editprofile : AppCompatActivity() {
     private fun saveDataUserLogged() {
         var editor: SharedPreferences.Editor = sharedPreferences.edit()
         var json : String = Gson().toJson(userLogged);
+
         editor.putString("userLogged",json)
         editor.apply();
     }
@@ -75,6 +78,7 @@ class editprofile : AppCompatActivity() {
 
     fun GoToProfile(){
         val intent = Intent(this, ProfileViewActivity::class.java)
+        loadUserLogged()
         startActivity(intent)
     }
 }
