@@ -9,6 +9,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
+import com.example.ilanguage.adapters.SessionAdapter
+import com.example.ilanguage.models_login.Session
 import com.example.ilanguage.models_login.User
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -18,6 +20,8 @@ class MainMenuActivity : AppCompatActivity() {
 
     //variables to initializate user
     lateinit var sharedPreferences : SharedPreferences
+    lateinit var sessions: List<Session>
+    lateinit var contactAdapter: SessionAdapter
     private var userLogged : User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +34,10 @@ class MainMenuActivity : AppCompatActivity() {
         loadUserLogged()
             Log.e("USEEEEERRRRR", userLogged.toString())
         changeTextGreetingsName()
+        loadSession()
+    }
+
+    private fun loadSession() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
