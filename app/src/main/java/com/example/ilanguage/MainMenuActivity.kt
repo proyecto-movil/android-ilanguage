@@ -9,11 +9,17 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ilanguage.adapters.SessionAdapter
+import com.example.ilanguage.controllers_login.RetrofitSession
 import com.example.ilanguage.models_login.Session
 import com.example.ilanguage.models_login.User
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.lang.reflect.Type
 
 class MainMenuActivity : AppCompatActivity() {
@@ -21,7 +27,7 @@ class MainMenuActivity : AppCompatActivity() {
     //variables to initializate user
     lateinit var sharedPreferences : SharedPreferences
     lateinit var sessions: List<Session>
-    lateinit var contactAdapter: SessionAdapter
+    lateinit var sessionAdapter: SessionAdapter
     private var userLogged : User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +40,25 @@ class MainMenuActivity : AppCompatActivity() {
         loadUserLogged()
             Log.e("USEEEEERRRRR", userLogged.toString())
         changeTextGreetingsName()
-        loadSession()
+        val rvSession = findViewById<RecyclerView>(R.id.rvSessions)
+        loadSession(rvSession)
     }
 
-    private fun loadSession() {
+    private fun loadSession(rvSessions: RecyclerView) {
+        val request = RetrofitSession.service.getSessionsByUserId(userLogged!!.id)
+        request.enqueue(object : Callback<List<Session>> {
+            override fun onResponse(call: Call<List<Session>>, response: Response<List<Session>>) {
+               sessions = response.body()!!
+                sessionAdapter = SessionAdapter(sessions)
+                rvSessions.adapter = sessionAdapter
+                rvSessions.layoutManager = LinearLayoutManager(this@MainMenuActivity)
+            }
+
+            override fun onFailure(call: Call<List<Session>>, t: Throwable) {
+                Log.d("Sesssion load by user id", t.toString())
+            }
+
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
