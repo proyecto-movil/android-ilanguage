@@ -62,7 +62,7 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun changeTextGreetingsName(){
-        var text = findViewById<TextView>(R.id.textView10)
+        var text = findViewById<TextView>(R.id.tvTopicLanguage)
         text.text = userLogged?.name ?: "FAIL NAME"
 
     }
