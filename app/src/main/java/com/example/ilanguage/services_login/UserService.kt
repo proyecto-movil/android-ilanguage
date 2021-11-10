@@ -2,10 +2,7 @@ package com.example.ilanguage.services_login
 
 import com.example.ilanguage.models_login.User
 import com.example.ilanguage.models_login.UserContent
-import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface UserService {
@@ -21,4 +18,14 @@ interface UserService {
     @POST("api/user/{userId}/role/{roleId}")
     fun assignUserRole(@Path("userId") userId: Int,
                        @Path("roleId") roleId: Int) : Call<User>
+    @PUT("api/user/{id}")
+    fun putuser(@Path("id") id: Int,
+                @Field("name" ) name:String,
+                @Field("email" ) email:String,
+                @Field("password" ) password:String,
+                @Field("description" ) description:String,
+
+
+                ):Call<User>
+
 }

@@ -8,9 +8,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import com.example.ilanguage.controllers_login.RetrofitLanguageUser
+import com.example.ilanguage.controllers_login.RetrofitUser
 import com.example.ilanguage.models_login.User
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.lang.reflect.Type
 
 class editprofile : AppCompatActivity() {
@@ -39,23 +44,54 @@ class editprofile : AppCompatActivity() {
         val btSave = findViewById<Button>(R.id.btsave)
         val btCancel = findViewById<Button>(R.id.btcancel)
 
-        initFields(this)
+        tvname.text = userLogged?.name
+        tvemail.text = userLogged?.email
+        tvpassword.text = userLogged?.password
+        tvdescripcion.text = userLogged?.description
+
 
         btSave.setOnClickListener {
-
-            saveDataUserLogged()
+            updateButton()
             GoToProfile()
+
+
+
         }
         btCancel.setOnClickListener {
             GoToProfile()
         }
     }
-    private fun initFields(context: Context) {
 
-        tvname.text = userLogged?.name
-        tvemail.text=userLogged?.email
-        tvpassword.text=userLogged?.password
-        tvdescripcion.text=userLogged?.description
+
+
+    private fun updateButton() {
+
+
+        RetrofitUser.service.putuser(userLogged!!.id, userLogged!!.name,
+                                     userLogged!!.email,userLogged!!.password,
+                                     userLogged!!.description).enqueue(
+            object :Callback<User>{
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    var userResponse = response?.body()
+                    Log.e("API UPDATE ",Gson().toJson(userResponse))
+
+                    //NOS VAMOS
+                    saveDataUserLogged()
+                    val intent = Intent(applicationContext,ProfileViewActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                    startActivity(intent)
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("bad bad ","UPDATE RESPOND BAD")
+                }
+
+            }
+                                     )
+
+
+
 
     }
 
