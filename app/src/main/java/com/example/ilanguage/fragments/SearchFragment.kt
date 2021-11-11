@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
 import com.example.ilanguage.R
 import com.example.ilanguage.controllers_login.RetrofitLanguage
+import com.example.ilanguage.controllers_login.RetrofitTeacher
 import com.example.ilanguage.controllers_login.RetrofitTopic
 import com.example.ilanguage.models_login.*
 import retrofit2.Call
@@ -44,10 +45,12 @@ class SearchFragment : Fragment() {
     private fun getTeachers() {
         var languagePicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoLanguage)
         var topicPicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoTopic)
+        var languageId = 0
+        var topicId = 0
         languageOptions.find {
             when(it.name){
                 languagePicker.text.toString() ->{
-                   Log.e("Language",it.id.toString())
+                   languageId = it.id
                    true
                 }
                 else->false
@@ -56,13 +59,28 @@ class SearchFragment : Fragment() {
         topicOptions.find{
             when(it.name){
                topicPicker.text.toString() ->{
-                   Log.e("topic",it.id.toString())
+                   topicId = it.id
                    true
                }
                 else -> false
             }
 
         }
+        if (languageId == 0 || topicId == 0){
+           Log.e("Error de busqueda","Lenguaje o topico no encontrados")
+        }else{
+           val request = RetrofitTeacher.service.getTeachersByLanguageIdAndTopicId(languageId,topicId)
+            request.enqueue(object : Callback<UserContent>{
+                override fun onResponse(call: Call<UserContent>, response: Response<UserContent>) {
+                    teachersOptions = response.body()!!.users
+                }
+                override fun onFailure(call: Call<UserContent>, t: Throwable) {
+                    Log.e("Error de tutores", t.toString())
+                }
+
+            })
+        }
+
 
     }
 
