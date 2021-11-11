@@ -48,7 +48,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun getTeachers(rvTeachers: RecyclerView) {
-        if (teachersOptions.size > 0){
+        if (teachersOptions.isNotEmpty()){
             teachersOptions = emptyList()
         }
         var languagePicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoLanguage)
@@ -138,7 +138,7 @@ class SearchFragment : Fragment() {
             topicOptions = emptyList()
         }
 
-       val request = RetrofitTopic.service.getTopics(userId)
+       val request = RetrofitTopic.service.getTopics()
         request.enqueue(object : Callback<TopicContent>{
             override fun onResponse(call: Call<TopicContent>, response: Response<TopicContent>) {
                 topicOptions = response.body()!!.topics
@@ -160,7 +160,6 @@ class SearchFragment : Fragment() {
             override fun onFailure(call: Call<TopicContent>, t: Throwable) {
                 Log.d("Error al obtener los topicos en search por id de usuario",t.toString())
             }
-
         })
     }
 }

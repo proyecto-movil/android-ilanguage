@@ -9,9 +9,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.*
 import androidx.core.content.ContentProviderCompat.requireContext
-import com.example.ilanguage.controllers_login.RetrofitLanguage
-import com.example.ilanguage.controllers_login.RetrofitLanguageUser
-import com.example.ilanguage.controllers_login.RetrofitUser
+import com.example.ilanguage.controllers_login.*
 import com.example.ilanguage.models_login.*
 import com.example.ilanguage.services_login.LanguageService
 import com.example.ilanguage.services_login.UserService
@@ -29,6 +27,7 @@ import kotlin.math.log
 
 class activity_details_personal : AppCompatActivity() {
     var languageOptions: List<Language> = emptyList()
+    var topicOptions: List<Topic> = emptyList()
     var userLogged: User? = null
     var optionUser: Int = 0
     lateinit var sharedPreferences : SharedPreferences
@@ -39,8 +38,10 @@ class activity_details_personal : AppCompatActivity() {
         setContentView(R.layout.activity_details_personal)
 
         var languageString = mutableListOf<String>()
+        var topicString = mutableListOf<String>()
 
         setLanguageListString(languageString)
+        setTopicListString(topicString)
 
         continueUserInformation()
         getBackActivityUserInformation()
@@ -97,12 +98,13 @@ class activity_details_personal : AppCompatActivity() {
         val btnContinueUser = findViewById<Button>(R.id.btn_continue_signup_users)
 
         val description = findViewById<TextInputEditText>(R.id.descriptionInput)
-        val birthdate = findViewById<TextInputEditText>(R.id.birthdateInput)
+        //val birthdate = findViewById<TextInputEditText>(R.id.birthdateInput)
         val country = findViewById<TextInputEditText>(R.id.countryInput)
         val languagePicker = findViewById<AutoCompleteTextView>(R.id.languageAutoComplete)
+        val topicPicker = findViewById<AutoCompleteTextView>(R.id.topicAutoComplete)
 
         btnContinueUser.setOnClickListener {
-            if(verifyAllDataComplete(description,birthdate,country,languagePicker)){
+            if(verifyAllDataComplete(description,country,languagePicker,topicPicker)){
 
                 RetrofitUser.service.createUser(userLogged!!).enqueue(
                     object : Callback<User> {
@@ -141,6 +143,20 @@ class activity_details_personal : AppCompatActivity() {
 
                                     }
                                 })
+
+                            RetrofitTopicUser.service.assignTopicUserId(userLogged!!.id,getIdTopicSelected(topicPicker.text.toString())).enqueue(
+                                object : Callback<User>
+                                {
+                                    override fun onResponse( call: Call<User>,response: Response<User>) {
+                                        var userReponse = response?.body()
+                                        Log.e("API TOPIC USER ASSIGNED",Gson().toJson(userLogged))
+                                    }
+                                    override fun onFailure(call: Call<User>, t: Throwable) {
+                                        t.printStackTrace()
+                                        Log.e("ERRRORR ASIGNING TOPIC USEERRRRR ","RESPOND BAD")
+
+                                    }
+                                })
                         }
                         override fun onFailure(call: Call<User>, t: Throwable) {
                             t.printStackTrace()
@@ -166,15 +182,23 @@ class activity_details_personal : AppCompatActivity() {
         }
         return 0
     }
+    private fun getIdTopicSelected(topicSelected : String): Int {
+        for(topic in topicOptions) {
+            if (topic.name == topicSelected) {
+                return topic.id
+            }
+        }
+        return 0
+    }
 
-    private fun verifyAllDataComplete(description: TextInputEditText?, birthdate: TextInputEditText?, country: TextInputEditText?, languagePicker: AutoCompleteTextView?): Boolean {
-        if(TextUtils.isEmpty(description?.text.toString()) || TextUtils.isEmpty((birthdate?.text.toString()))  ) {
+    private fun verifyAllDataComplete(description: TextInputEditText?, country: TextInputEditText?,
+                                      languagePicker: AutoCompleteTextView?, topicPicker: AutoCompleteTextView?): Boolean {
+        if(TextUtils.isEmpty(description?.text.toString()) || TextUtils.isEmpty((topicPicker?.text.toString())) ) {
             return false
         }
         if(TextUtils.isEmpty(country?.text.toString()) || TextUtils.isEmpty((languagePicker?.text.toString()))  ) {
             return false
         }
-        //TODO: Complete this
         userLogged!!.description = description?.text.toString()
         return true
     }
@@ -186,14 +210,6 @@ class activity_details_personal : AppCompatActivity() {
     }
 
     private fun setLanguageListString(languageString: MutableList<String>) {
-        //val request = LanguageController().languageService.getLanguages()
-
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://proyecto-moviles-326304.rj.r.appspot.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-
         RetrofitLanguage.service.getLanguages().enqueue(object : Callback<LanguageContent> {
             override fun onResponse(call: Call<LanguageContent>?, response: Response<LanguageContent>?) {
                 val apiResponse = response?.body()
@@ -216,8 +232,34 @@ class activity_details_personal : AppCompatActivity() {
         })
     }
 
+    private fun setTopicListString(topicString: MutableList<String>) {
+
+        RetrofitTopic.service.getTopics().enqueue(object : Callback<TopicContent> {
+            override fun onResponse(call: Call<TopicContent>?, response: Response<TopicContent>?) {
+                val apiResponse = response?.body()
+                if (apiResponse != null) {
+                    UpdateListTopic(apiResponse.topics)
+                    for (topic in topicOptions)
+                    {
+                        topicString.add(topic.name)
+                    }
+                    val topicAutoComplete = findViewById<AutoCompleteTextView>(R.id.topicAutoComplete)
+
+                    val adapter = ArrayAdapter(this@activity_details_personal, R.layout.option_topic, topicString)
+                    topicAutoComplete.setText(adapter.getItem(0),false);
+                    topicAutoComplete.setAdapter(adapter)
+                }
+            }
+            override fun onFailure(call: Call<TopicContent>, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+    }
 
     private fun UpdateListLanguage(languages: List<Language>) {
         languageOptions = languages
+    }
+    private fun UpdateListTopic(topics: List<Topic>) {
+        topicOptions = topics
     }
 }

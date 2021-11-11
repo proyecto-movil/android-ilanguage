@@ -78,30 +78,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/birthdateHint"
-        android:layout_width="314dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#20100F0F"
-        android:hint="Birthdate"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/birthdateInput"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#20656464"
-            android:minHeight="48dp"
-            android:singleLine="true"
-            android:text="mm/dd/yy" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/countryInputHint"
         android:layout_width="314dp"
         android:layout_height="55dp"
@@ -112,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51">
+        app:layout_constraintVertical_bias="0.42000002">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/countryInput"
@@ -140,10 +116,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62">
+        app:layout_constraintVertical_bias="0.51">
 
         <AutoCompleteTextView
             android:id="@+id/languageAutoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/select_topic"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="314dp"
+        android:layout_height="55dp"
+
+        android:backgroundTint="#20656464"
+        android:hint="topic interest in"
+
+
+        android:inputType="none"
+
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61">
+
+        <AutoCompleteTextView
+            android:id="@+id/topicAutoComplete"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="none" />

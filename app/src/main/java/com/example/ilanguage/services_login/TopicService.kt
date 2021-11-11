@@ -7,5 +7,9 @@ import retrofit2.http.Path
 
 interface TopicService {
     @GET("api/users/{userId}/topics")
-    fun getTopics(@Path("userId") userId: Int) : Call<TopicContent>
+    fun getTopicsByUser(@Path("userId") userId: Int) : Call<TopicContent>
+
+    @GET("api/topic")
+    fun getTopics() : Call<TopicContent>
+
 }

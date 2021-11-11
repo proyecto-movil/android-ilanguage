@@ -73,7 +73,6 @@ class login_info : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show();
             } else {
-                // METODO WTF
                 RetrofitUser.service.getUsers().enqueue(object : Callback<UserContent> {
                         override fun onResponse(  call: Call<UserContent>,response: Response<UserContent>)
                         {
@@ -94,7 +93,6 @@ class login_info : AppCompatActivity() {
                         }
 
                         override fun onFailure(call: Call<UserContent>, t: Throwable) {
-                            Log.e("AAAAAAAAAAAAAAAAAAAAAAAAAAAA", "ON FAILUARE")
                             Toast.makeText(
                                 this@login_info,
                                 "Intentelo de nuevo, por favor",
