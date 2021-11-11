@@ -19,13 +19,5 @@ interface UserService {
     fun assignUserRole(@Path("userId") userId: Int,
                        @Path("roleId") roleId: Int) : Call<User>
     @PUT("api/user/{id}")
-    fun putuser(@Path("id") id: Int,
-                @Field("name" ) name:String,
-                @Field("email" ) email:String,
-                @Field("password" ) password:String,
-                @Field("description" ) description:String,
-
-
-                ):Call<User>
-
+    fun updateUser(@Body userData: User):Call<User>
 }

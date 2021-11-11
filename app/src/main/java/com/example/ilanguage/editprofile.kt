@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.example.ilanguage.controllers_login.RetrofitLanguageUser
@@ -16,6 +17,8 @@ import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Type
 
 class editprofile : AppCompatActivity() {
@@ -25,6 +28,7 @@ class editprofile : AppCompatActivity() {
     lateinit var tvemail :TextView
     lateinit var tvpassword:TextView
     lateinit var tvdescripcion:TextView
+    var url = "https://proyecto-moviles-326304.rj.r.appspot.com/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -44,10 +48,14 @@ class editprofile : AppCompatActivity() {
         val btSave = findViewById<Button>(R.id.btsave)
         val btCancel = findViewById<Button>(R.id.btcancel)
 
+
+
         tvname.text = userLogged?.name
         tvemail.text = userLogged?.email
         tvpassword.text = userLogged?.password
         tvdescripcion.text = userLogged?.description
+
+
 
 
         btSave.setOnClickListener {
@@ -64,31 +72,17 @@ class editprofile : AppCompatActivity() {
 
 
 
-    private fun updateButton() {
+    private fun updateButton( ) {
 
 
-        RetrofitUser.service.putuser(userLogged!!.id, userLogged!!.name,
-                                     userLogged!!.email,userLogged!!.password,
-                                     userLogged!!.description).enqueue(
-            object :Callback<User>{
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                    var userResponse = response?.body()
-                    Log.e("API UPDATE ",Gson().toJson(userResponse))
+        // on below line we are creating a retrofit
+        // builder and passing our base url
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://proyecto-moviles-326304.rj.r.appspot.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
-                    //NOS VAMOS
-                    saveDataUserLogged()
-                    val intent = Intent(applicationContext,ProfileViewActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
-                    startActivity(intent)
-                }
-
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    Log.e("bad bad ","UPDATE RESPOND BAD")
-                }
-
-            }
-                                     )
 
 
 
@@ -118,3 +112,6 @@ class editprofile : AppCompatActivity() {
         startActivity(intent)
     }
 }
+
+
+

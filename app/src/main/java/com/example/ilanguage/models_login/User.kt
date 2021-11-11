@@ -3,7 +3,9 @@ package com.example.ilanguage.models_login
 import com.google.gson.annotations.SerializedName
 
  class User(ID: Int = 0, NAME : String = "", LASTNAME: String = "", EMAIL: String = "",  PASSWORD: String = "",
+
              DESCRIPTION: String = "",  MEDIA : Int = 0) {
+
      @SerializedName("id")
      var id: Int = ID
 
