@@ -8,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.ImageButton
 import com.example.ilanguage.R
 import com.example.ilanguage.controllers_login.RetrofitLanguage
 import com.example.ilanguage.controllers_login.RetrofitTopic
-import com.example.ilanguage.models_login.Language
-import com.example.ilanguage.models_login.LanguageContent
-import com.example.ilanguage.models_login.Topic
-import com.example.ilanguage.models_login.TopicContent
+import com.example.ilanguage.models_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +20,7 @@ import retrofit2.Response
 class SearchFragment : Fragment() {
     var languageOptions: List<Language> = emptyList()
     var topicOptions: List<Topic> = emptyList()
+    var teachersOptions: List<User> = emptyList()
     var languageString = mutableListOf<String>()
     var topicString = mutableListOf<String>()
     override fun onCreateView(
@@ -34,8 +33,37 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var btSearchTutor = view.findViewById<ImageButton>(R.id.btSearchTutor)
+        btSearchTutor.setOnClickListener {
+           getTeachers()
+        }
         getLanguages()
         getTopics(requireArguments().getInt("userId"))
+    }
+
+    private fun getTeachers() {
+        var languagePicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoLanguage)
+        var topicPicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoTopic)
+        languageOptions.find {
+            when(it.name){
+                languagePicker.text.toString() ->{
+                   Log.e("Language",it.id.toString())
+                   true
+                }
+                else->false
+            }
+        }
+        topicOptions.find{
+            when(it.name){
+               topicPicker.text.toString() ->{
+                   Log.e("topic",it.id.toString())
+                   true
+               }
+                else -> false
+            }
+
+        }
+
     }
 
     companion object {
