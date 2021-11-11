@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ilanguage.R
+import com.example.ilanguage.adapters.TeacherAdapter
 import com.example.ilanguage.controllers_login.RetrofitLanguage
 import com.example.ilanguage.controllers_login.RetrofitTeacher
 import com.example.ilanguage.controllers_login.RetrofitTopic
@@ -24,6 +27,7 @@ class SearchFragment : Fragment() {
     var teachersOptions: List<User> = emptyList()
     var languageString = mutableListOf<String>()
     var topicString = mutableListOf<String>()
+    lateinit var teacherAdapter: TeacherAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,14 +39,18 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var btSearchTutor = view.findViewById<ImageButton>(R.id.btSearchTutor)
+        val rvTeachers = requireView().findViewById<RecyclerView>(R.id.rvTeachers)
         btSearchTutor.setOnClickListener {
-           getTeachers()
+           getTeachers(rvTeachers)
         }
         getLanguages()
         getTopics(requireArguments().getInt("userId"))
     }
 
-    private fun getTeachers() {
+    private fun getTeachers(rvTeachers: RecyclerView) {
+        if (teachersOptions.size > 0){
+            teachersOptions = emptyList()
+        }
         var languagePicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoLanguage)
         var topicPicker = requireView().findViewById<AutoCompleteTextView>(R.id.autoTopic)
         var languageId = 0
@@ -73,6 +81,9 @@ class SearchFragment : Fragment() {
             request.enqueue(object : Callback<UserContent>{
                 override fun onResponse(call: Call<UserContent>, response: Response<UserContent>) {
                     teachersOptions = response.body()!!.users
+                    teacherAdapter = TeacherAdapter(teachersOptions)
+                    rvTeachers.adapter = teacherAdapter
+                    rvTeachers.layoutManager = LinearLayoutManager(context)
                 }
                 override fun onFailure(call: Call<UserContent>, t: Throwable) {
                     Log.e("Error de tutores", t.toString())
