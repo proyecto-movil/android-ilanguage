@@ -51,6 +51,7 @@ class MainMenuActivity : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putInt("userId", userLogged?.id?:1)
         sessionFragment.arguments = bundle
+        searchFragment.arguments = bundle
         btBotMenu.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.bnSearch -> {
@@ -62,7 +63,6 @@ class MainMenuActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bnHome -> {
-                    sessionFragment.arguments = bundle
                     supportFragmentManager
                         .beginTransaction()
                         .replace(R.id.flMainMenu, sessionFragment)
