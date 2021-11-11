@@ -111,14 +111,19 @@ class SearchFragment : Fragment() {
                response: Response<LanguageContent>
            ) {
                languageOptions = response.body()!!.languages
-               for (language in languageOptions)
-               {
-                   languageString.add(language.name)
+               if (languageOptions.size > 0){
+
+                   for (language in languageOptions)
+                   {
+                       languageString.add(language.name)
+                   }
+                   val languageAutoComplete = view!!.findViewById<AutoCompleteTextView>(R.id.autoLanguage)
+                   val adapter = ArrayAdapter(context!!, R.layout.option_language, languageString)
+                   languageAutoComplete.setText(adapter.getItem(0),false)
+                   languageAutoComplete.setAdapter(adapter)
+               } else{
+                  Log.e("No hay lenguajes", "No tiene lenguajes asignados")
                }
-               val languageAutoComplete = view!!.findViewById<AutoCompleteTextView>(R.id.autoLanguage)
-               val adapter = ArrayAdapter(context!!, R.layout.option_language, languageString)
-               languageAutoComplete.setText(adapter.getItem(0),false)
-               languageAutoComplete.setAdapter(adapter)
            }
 
            override fun onFailure(call: Call<LanguageContent>, t: Throwable) {
@@ -137,14 +142,18 @@ class SearchFragment : Fragment() {
         request.enqueue(object : Callback<TopicContent>{
             override fun onResponse(call: Call<TopicContent>, response: Response<TopicContent>) {
                 topicOptions = response.body()!!.topics
-                for(topic in topicOptions)
-                {
-                   topicString.add(topic.name)
+                if (topicOptions.size > 0){
+                    for(topic in topicOptions)
+                    {
+                        topicString.add(topic.name)
+                    }
+                    val topicAutoComplete = view!!.findViewById<AutoCompleteTextView>(R.id.autoTopic)
+                    val adapter = ArrayAdapter(context!!,R.layout.option_topic,topicString)
+                    topicAutoComplete.setText(adapter.getItem(0),false)
+                    topicAutoComplete.setAdapter(adapter)
+                }else{
+                    Log.e("No hay topicos", "No tiene topico asignado")
                 }
-                val topicAutoComplete = view!!.findViewById<AutoCompleteTextView>(R.id.autoTopic)
-                val adapter = ArrayAdapter(context!!,R.layout.option_topic,topicString)
-                topicAutoComplete.setText(adapter.getItem(0),false)
-                topicAutoComplete.setAdapter(adapter)
 
             }
 
