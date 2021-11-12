@@ -1,5 +1,6 @@
 package com.example.ilanguage.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,19 +10,29 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ilanguage.ProfileViewActivity
 import com.example.ilanguage.R
 import com.example.ilanguage.adapters.TeacherAdapter
 import com.example.ilanguage.controllers_login.RetrofitLanguage
 import com.example.ilanguage.controllers_login.RetrofitTeacher
 import com.example.ilanguage.controllers_login.RetrofitTopic
+
 import com.example.ilanguage.models_login.*
+import com.example.ilanguage.profile_teacher
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.ilanguage.MainActivity
+
+
+
 
 class SearchFragment : Fragment() {
+
     var languageOptions: List<Language> = emptyList()
     var topicOptions: List<Topic> = emptyList()
     var teachersOptions: List<User> = emptyList()
@@ -36,13 +47,27 @@ class SearchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
         var btSearchTutor = view.findViewById<ImageButton>(R.id.btSearchTutor)
+
+
+
+
         val rvTeachers = requireView().findViewById<RecyclerView>(R.id.rvTeachers)
         btSearchTutor.setOnClickListener {
            getTeachers(rvTeachers)
         }
+        rvTeachers.setOnClickListener {
+
+
+        }
+
+
+
+
         getLanguages()
         getTopics(requireArguments().getInt("userId"))
     }
@@ -162,4 +187,8 @@ class SearchFragment : Fragment() {
             }
         })
     }
+
+
+
+
 }
