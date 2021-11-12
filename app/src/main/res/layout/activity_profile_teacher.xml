@@ -6,54 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".profile_teacher">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tbMenut"
-        android:layout_width="412dp"
-        android:layout_height="59dp"
-        android:background="@color/backgroundILanguage"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="-1dp" />
-
-    <TextView
-
-
-        android:id="@+id/textView18"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="16dp"
-        android:text="ILanguage"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tbMenut"
-        app:layout_constraintEnd_toEndOf="@+id/tbMenut"
-        app:layout_constraintStart_toEndOf="@+id/tbMenu"
-        app:layout_constraintTop_toTopOf="@+id/tbMenu" />
-
-    <ImageButton
-        android:id="@+id/btBackt"
-        android:layout_width="45dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tbMenut"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tbMenut"
-        app:srcCompat="@mipmap/ic_back" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="52dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tbMenut"
-        app:layout_constraintEnd_toEndOf="@+id/tbMenut"
-        app:layout_constraintTop_toTopOf="@+id/tbMenu"
-        app:srcCompat="@mipmap/ic_estudiante2" />
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
@@ -64,12 +16,72 @@
         android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintBottom_toTopOf="@+id/tvDescription3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436"
+        app:layout_constraintVertical_bias="0.184"
         tools:ignore="ImageContrastCheck"
         tools:src="@drawable/ic_baseline_account_circle_24" />
+
+    <TextView
+        android:id="@+id/tvDescription3"
+        android:layout_width="317dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="312dp"
+        android:text="@string/texto_de_ejemplo_de_desciption"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLanguaget"
+        android:layout_width="317dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/texto_de_ejemplo_de_interest"
+        app:layout_constraintBottom_toTopOf="@+id/btReservar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescription3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.825" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="82dp"
+        android:layout_height="22dp"
+        android:text="@string/languages"
+        app:layout_constraintBottom_toTopOf="@+id/tvLanguaget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription3"
+        app:layout_constraintVertical_bias="0.488" />
+
+    <Button
+        android:id="@+id/btReservar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="96dp"
+        android:text="@string/Reservar"
+        android:textColor="#3E2723"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLanguage"
+        tools:text="Reservar" />
 
     <TextView
         android:id="@+id/tvProfileName3"
@@ -80,68 +92,8 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888" />
+        app:layout_constraintVertical_bias="0.72" />
 
-    <TextView
-        android:id="@+id/tvDescription3"
-        android:layout_width="317dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="260dp"
-        android:text="@string/texto_de_ejemplo_de_desciption"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvLanguage3"
-        android:layout_width="317dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/texto_de_ejemplo_de_interest"
-        app:layout_constraintBottom_toTopOf="@+id/btReservar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/description"
-        app:layout_constraintBottom_toTopOf="@+id/tvDescription3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.864" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="82dp"
-        android:layout_height="22dp"
-        android:text="@string/languages"
-        app:layout_constraintBottom_toTopOf="@+id/tvLanguage3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription3"
-        app:layout_constraintVertical_bias="0.625" />
-
-    <Button
-        android:id="@+id/btReservar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginBottom="44dp"
-        android:text="@string/Reservar"
-        android:textColor="#3E2723"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLanguage"
-        tools:text="Reservar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
