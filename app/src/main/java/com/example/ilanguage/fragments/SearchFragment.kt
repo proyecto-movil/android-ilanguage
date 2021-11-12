@@ -31,7 +31,7 @@ import com.example.ilanguage.MainActivity
 
 
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), TeacherAdapter.OnItemClickListener {
 
     var languageOptions: List<Language> = emptyList()
     var topicOptions: List<Topic> = emptyList()
@@ -52,21 +52,10 @@ class SearchFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
         var btSearchTutor = view.findViewById<ImageButton>(R.id.btSearchTutor)
-
-
-
-
         val rvTeachers = requireView().findViewById<RecyclerView>(R.id.rvTeachers)
         btSearchTutor.setOnClickListener {
            getTeachers(rvTeachers)
         }
-        rvTeachers.setOnClickListener {
-
-
-        }
-
-
-
 
         getLanguages()
         getTopics(requireArguments().getInt("userId"))
@@ -188,7 +177,11 @@ class SearchFragment : Fragment() {
         })
     }
 
-
+    override fun onItemClicked(user: User) {
+        val intent = Intent(context, profile_teacher::class.java)
+        intent.putExtra("User", user)
+        startActivity(intent)
+    }
 
 
 }

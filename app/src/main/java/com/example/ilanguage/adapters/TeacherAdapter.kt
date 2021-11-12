@@ -5,20 +5,28 @@ import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ilanguage.R
 import com.example.ilanguage.models_login.User
 
-class TeacherAdapter(val teachers: List<User>): RecyclerView.Adapter<TeacherPrototype>() {
+class TeacherAdapter(val teachers: List<User>, val itemClickListener: OnItemClickListener): RecyclerView.Adapter<TeacherPrototype>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeacherPrototype {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.prototype_teacher,parent,false)
         return TeacherPrototype(view)
     }
+    interface OnItemClickListener {
+        fun onItemClicked(user: User)
+    }
 
     override fun onBindViewHolder(holder: TeacherPrototype, position: Int) {
+        val teacher=teachers[position]
         holder.bind(teachers[position])
+        holder.cvTeacherSearch.setOnClickListener {
+            itemClickListener.onItemClicked(teacher)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -33,5 +41,6 @@ class TeacherPrototype(itemView: View) :RecyclerView.ViewHolder(itemView){
        tvTeacherName.text = teacher.name
         tvTeacherDescription.text = teacher.description
     }
+    val cvTeacherSearch= itemView.findViewById<CardView>(R.id.cvTeacherSearch)
 
 }
