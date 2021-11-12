@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ilanguage">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,29 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tp">
         <activity
-
+            android:name=".profile_teacher"
+            android:exported="true" />
+        <activity
             android:name=".ProfileViewActivity"
             android:parentActivityName=".MainMenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVYTY"
-                android:value=".MainMenuActivity"/>
+                android:value=".MainMenuActivity" />
         </activity>
         <activity
             android:name=".MainMenuActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".editprofile"
-            android:parentActivityName=".ProfileViewActivity" >
+            android:parentActivityName=".ProfileViewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVYTY"
-                android:value=".ProfileViewActivity"/>
+                android:value=".ProfileViewActivity" />
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".activity_details_personal"
             android:exported="true" />
@@ -54,6 +54,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -61,6 +62,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
+
 </manifest>

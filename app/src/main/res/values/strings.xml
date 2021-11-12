@@ -40,6 +40,15 @@
     <string name="join">JOIN</string>
     <string name="todo">TODO</string>
     <string name="languages">Languages</string>
+
+
+
+    <string name="stringreservar">reservar</string>
+    <string name="Reservar">k</string>
+
+
+
+    
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
