@@ -7,14 +7,14 @@
     tools:context=".profile_teacher">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/ivProfileTeacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="143dp"
         android:src="@drawable/ic_baseline_account_circle_24"
-        app:layout_constraintBottom_toTopOf="@+id/tvDescription3"
+        app:layout_constraintBottom_toTopOf="@+id/tvProfileDescriptionTeacher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         tools:src="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
-        android:id="@+id/tvDescription3"
+        android:id="@+id/tvProfileDescriptionTeacher"
         android:layout_width="317dp"
         android:layout_height="74dp"
         android:layout_marginBottom="312dp"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvLanguaget"
+        android:id="@+id/tvProfileLanguageTeacher"
         android:layout_width="317dp"
         android:layout_height="74dp"
         android:layout_marginBottom="28dp"
@@ -50,11 +50,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/description"
-        app:layout_constraintBottom_toTopOf="@+id/tvDescription3"
+        app:layout_constraintBottom_toTopOf="@+id/tvProfileDescriptionTeacher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfileTeacher"
         app:layout_constraintVertical_bias="0.825" />
 
     <TextView
@@ -62,11 +62,11 @@
         android:layout_width="82dp"
         android:layout_height="22dp"
         android:text="@string/languages"
-        app:layout_constraintBottom_toTopOf="@+id/tvLanguaget"
+        app:layout_constraintBottom_toTopOf="@+id/tvProfileLanguageTeacher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription3"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfileDescriptionTeacher"
         app:layout_constraintVertical_bias="0.488" />
 
     <Button
@@ -84,13 +84,13 @@
         tools:text="Reservar" />
 
     <TextView
-        android:id="@+id/tvProfileName3"
+        android:id="@+id/tvProfileTeacherName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="@string/profile_name"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintBottom_toTopOf="@+id/ivProfileTeacher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

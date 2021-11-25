@@ -52,6 +52,7 @@ class MainMenuActivity : AppCompatActivity() {
         bundle.putInt("userId", userLogged?.id?:1)
         sessionFragment.arguments = bundle
         searchFragment.arguments = bundle
+
         btBotMenu.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.bnSearch -> {

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,8 +28,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.ilanguage.MainActivity
-
-
+import com.example.ilanguage.adapters.onItemClickListener
 
 
 class SearchFragment : Fragment() {
@@ -49,25 +49,12 @@ class SearchFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
         var btSearchTutor = view.findViewById<ImageButton>(R.id.btSearchTutor)
-
-
-
-
         val rvTeachers = requireView().findViewById<RecyclerView>(R.id.rvTeachers)
         btSearchTutor.setOnClickListener {
            getTeachers(rvTeachers)
         }
-        rvTeachers.setOnClickListener {
-
-
-        }
-
-
-
-
         getLanguages()
         getTopics(requireArguments().getInt("userId"))
     }
@@ -108,6 +95,15 @@ class SearchFragment : Fragment() {
                     teachersOptions = response.body()!!.users
                     teacherAdapter = TeacherAdapter(teachersOptions)
                     rvTeachers.adapter = teacherAdapter
+                    teacherAdapter.setOnItemClickListener(object : onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(context,profile_teacher::class.java)
+                            intent.putExtra("nameTeacher",teachersOptions[position].name)
+                            intent.putExtra("descriptionTeacher",teachersOptions[position].description)
+                            intent.putExtra("id",teachersOptions[position].id)
+                            startActivity(intent)
+                        }
+                    })
                     rvTeachers.layoutManager = LinearLayoutManager(context)
                 }
                 override fun onFailure(call: Call<UserContent>, t: Throwable) {

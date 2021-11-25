@@ -13,7 +13,11 @@
         android:theme="@style/Theme.Tp">
         <activity
             android:name=".profile_teacher"
-            android:exported="true" />
+            android:parentActivityName=".MainMenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVYTY"
+                android:value=".MainMenuActivity" />
+        </activity>
         <activity
             android:name=".ProfileViewActivity"
             android:parentActivityName=".MainMenuActivity">
