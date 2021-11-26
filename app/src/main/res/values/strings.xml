@@ -42,15 +42,43 @@
     <string name="languages">Languages</string>
 
 
-
     <string name="stringreservar">reservar</string>
     <string name="Reservar">k</string>
 
 
-
-    
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="term_and_conditions">Term and Conditions</string>
+    <string name="terms_contion_text"><![CDATA[Collection of personal data To browse www.ilanguage.com
+    you do not need to provide any personal data. The cases in which you do provide your personal data are the following:
+    -By contacting us through the contact forms or sending an e-mail.
+    -When commenting on an article or page.
+    -When you sign up for a subscription form Your rights The Data Controller informs you that you have the right to:
+    -Request access to stored data. -Request rectification or cancellation.
+    -Request the limitation of your treatment -Oppose treatment
+     -Request the portability of your data The exercise of these rights is personal and therefore must be exercised directly by the interested party,
+     requesting it directly to the Holder, which means that any customer, subscriber or collaborator who has provided their data at any time may contact the Holder and request
+     information about the data stored and how it has been obtained, request the rectification of the same, request the portability of their personal data, oppose the treatment,
+     limit its use or request the cancellation of such data in the files of the Holder. To exercise your rights of access, rectification, cancellation, portability and opposition
+     you have to send an email to info@ilanguage.com along with valid proof in law such as a photocopy of your ID card or equivalent. You have the right to effective judicial protection
+      and to file a complaint with the supervisory authority, in this case, the Spanish Data Protection Agency, if you consider that the processing of personal data concerning
+      you infringes the Regulation. The pages of this application may include embedded content (e.g., videos, images, articles, etc.). Embedded content from other websites behaves
+      in exactly the same way as if you had visited the other application. These websites may collect data about you, use cookies, embed additional third-party tracking code, and monitor
+      your interaction using this code. Content from other websites Pages on this application may include embedded content (e.g., videos, images, articles, etc.). Embedded content
+      from other websites behaves in exactly the same way as if you had visited the other application. These websites may collect data about you, use cookies, embed additional third-party
+      tracking code, and monitor your interaction using this code. Cookie Policy For this application to function properly it needs to use cookies, which is information that is stored in your
+       web browser. In the Cookies Policy page you can consult all the information related to the collection policy, the purpose and treatment of cookies. This site and its components are
+        provided for informational purposes only; this site is not responsible for the accuracy, usefulness or availability of any information transmitted or made available through this site
+         and shall not be liable for any errors or omissions in such information This type of provision will help you avoid liability in the event that a user relies on your information and
+          that causes a problem. The site and its original content, features and functionality are the property of ILanguage S.A.C. and are protected by international copyright, trademark,
+           patent, trade secret and other intellectual property or proprietary rights laws. The company reserves the right to modify these terms from time to time as it sees fit; furthermore,
+            your continued use of the site will signify your acceptance of any adjustment to such terms. If there are any changes to our privacy policy, we will post notices on our home page
+             and other important pages of our site that such changes have been made. If there are any changes on our site regarding how we use our customers\' personally identifiable information,
+              we will send a notice by e-mail or postal mail to those who are affected by the change. Any changes to our privacy policy will be posted on our site 30 days]]></string>
+    <string name="term_of_services">Term of Services</string>
+    <string name="last_update">Last update: July 2021</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
 
 
 </resources>

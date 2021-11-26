@@ -19,7 +19,7 @@ class select_signup : AppCompatActivity() {
         var optionRegister: Int = 0
 
         btnBack.setOnClickListener {
-            val intent = Intent(this,login::class.java)
+            val intent = Intent(this,termConditions::class.java)
             startActivity(intent)
         }
 
